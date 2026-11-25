@@ -124,6 +124,16 @@
 - **Como verifiquei:** `npm run test` e `npm run build` passando. Verificação manual esperada: digitar rápido gera 1 chamada na aba Rede.
 - **O que consigo explicar:** fluxo `texto -> debounce -> URL -> hook`: o input atualiza estado local, o debounce espera o usuário parar, o termo normalizado vai para `?q=`, e o `useIssues` reage à mudança de `q` fazendo nova busca; AbortController evita sobrescrever resultado antigo.
 
+## Evidência 13 — T-11: paginação e testes de integração
+
+- **Data / tarefa:** 2026-11-24 · T-11 (RF-07, RN-05)
+- **Prompt usado:**
+  > Continuação autorizada do plano de desenvolvimento (commits semânticos por tarefa).
+- **Resultado da IA:** criou `Pagination` com `nav` acessível, botões desabilitados nos extremos e ocultação quando `totalPages <= 1`; integrou `?page=` na Home com scroll ao topo da lista; adicionou testes de integração T-01, T-02, T-06 em `HomePage.test.tsx` com RTL, MemoryRouter e mock de `githubApi`.
+- **Ajustes que fiz:** nenhum ajuste manual adicional; corrigi guard de `scrollIntoView` para compatibilidade com jsdom e tornei a asserção de T-02 robusta.
+- **Como verifiquei:** `npm run test` (16 testes passando) e `npm run build` passando.
+- **O que consigo explicar:** a paginação é server-side porque `page/per_page` vão na Search API e `totalPages` vem de `total_count`; a URL guarda `q` e `page`, permitindo compartilhar/restaurar estado.
+
 ## Reflexão final
 
 - **Onde a IA mais ajudou:** acelerar análise de SPECs, preparar configuração de deploy e executar tarefas operacionais repetitivas (criação/validação de issues).

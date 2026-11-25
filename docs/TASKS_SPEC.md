@@ -19,7 +19,7 @@
 | **T-08** | `stripMarkdown`, `formatRelativeDate` (+ testes), `IssueCard` e `IssueList` | T-03 | RF-08, RN-07 | Resumo limpo e truncado; "há 3 dias"; card com comentários linka `/post/:n` | [x] |
 | **T-09** | `useIssues` e listagem na Home (últimas issues, ordem decrescente) | T-07, T-08 | RF-04, RN-04 | Posts reais com loading/erro/vazio funcionando | [x] |
 | **T-10** | `useDebounce`, `SearchInput` e integração com `?q=` na URL; abort de requisição obsoleta | T-09 | RF-05/06/16, RNF-01 | Digitar rápido gera **1** chamada; busca antiga nunca sobrescreve a nova; vazio tratado | [x] |
-| **T-11** | `Pagination` (`?page=`, `per_page`=6) + testes T-01, T-02 e T-06 | T-10 | RF-07, RN-05 | 10 issues → 2 páginas; Anterior/Próxima desabilitados nos extremos; testes passam | [ ] |
+| **T-11** | `Pagination` (`?page=`, `per_page`=6) + testes T-01, T-02 e T-06 | T-10 | RF-07, RN-05 | 10 issues → 2 páginas; Anterior/Próxima desabilitados nos extremos; testes passam | [x] |
 | **T-12** | `useIssue`, `MarkdownContent` e `PostPage` (Voltar, Ver no GitHub, metadados) | T-05 | RF-09/10/11/12, RN-07 | Funciona por clique **e** URL direta; Markdown completo; Voltar preserva busca/página | [ ] |
 | **T-13** | Rotas finais, `NotFoundPage` + teste T-03 (detalhe) | T-12 | RF-09/16 | URL desconhecida mostra 404 com link; teste passa | [ ] |
 | **T-14** | Revisão de resiliência (404, rate limit com horário, rede, vazio, retry) + teste T-04 | T-13 | RF-13/14, RN-08 | Cenários simulados (offline, bloqueio, URL inexistente) corretos; teste passa | [ ] |

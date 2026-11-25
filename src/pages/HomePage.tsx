@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { EmptyState } from '../components/EmptyState'
 import { ErrorState } from '../components/ErrorState'
 import { Header } from '../components/Header'
 import { IssueList } from '../components/IssueList'
 import { LoadingState } from '../components/LoadingState'
+import { Pagination } from '../components/Pagination'
 import { ProfileCard } from '../components/ProfileCard'
 import { SearchInput } from '../components/SearchInput'
 import { config } from '../config/env'
@@ -39,12 +40,21 @@ export function HomePage() {
     }
   }, [debouncedTerm, q, setSearchParams])
 
+  const listRef = useRef<HTMLElement | null>(null)
+
   const publicationsLabel =
     issues.data?.totalCount === 1 ? '1 publicação' : `${issues.data?.totalCount ?? 0} publicações`
 
   function handleClearSearch() {
     setInputValue('')
     setSearchParams({})
+  }
+
+  function handlePageChange(nextPage: number) {
+    const params: Record<string, string> = { page: String(nextPage) }
+    if (q) params.q = q
+    setSearchParams(params)
+    listRef.current?.scrollIntoView?.({ behavior: 'smooth', block: 'start' })
   }
 
   return (
@@ -71,7 +81,7 @@ export function HomePage() {
 
         {profile.status === 'success' && profile.data && <ProfileCard user={profile.data} />}
 
-        <section className="mt-[72px]">
+        <section ref={listRef} className="mt-[72px]">
           <div className="mb-3 flex items-center justify-between gap-4">
             <h2 className="text-subtitle text-[18px] font-bold leading-[1.6]">Publicações</h2>
             <span aria-live="polite" className="text-span text-[14px] leading-[1.6]">
@@ -94,7 +104,14 @@ export function HomePage() {
           )}
 
           {issues.status === 'success' && issues.data && issues.data.items.length > 0 && (
-            <IssueList issues={issues.data.items} />
+            <>
+              <IssueList issues={issues.data.items} />
+              <Pagination
+                page={issues.data.page}
+                totalPages={issues.data.totalPages}
+                onPageChange={handlePageChange}
+              />
+            </>
           )}
         </section>
       </main>
