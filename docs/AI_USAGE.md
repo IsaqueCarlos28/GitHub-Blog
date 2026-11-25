@@ -207,7 +207,16 @@
 - **Resultado da IA:** diagnosticou com `browser.evaluate` no ambiente publicado/local: `header` com `position: relative; z-index:auto; height:212` e card sobreposto com `position: static; z-index:auto; top:124` (sobreposição geométrica de 88px). Como o header é posicionado e vem antes no DOM, ele pintava por cima do card estático. Corrigiu adicionando `relative` aos wrappers/cards com margem negativa em `PostPage.tsx` e `HomePage.tsx` (LoadingState/ErrorState já tinham `relative` parcial no working tree).
 - **Ajustes que fiz:** nenhum ajuste manual adicional no código; validação visual final no Vercel após redeploy fica com o usuário.
 - **Como verifiquei:** `browser.evaluate` após HMR confirmou `card.pos === 'relative'`; `npm run build` e `npm run test` passaram (9 arquivos, 23 testes). Screenshot automatizado do post não pôde ser recapturado neste ambiente (browser screenshot exigiu janela visível).
-- **Observação importante:** no Vercel publicado foi observado `GET https://api.github.com/repos/VITE_GITHUB_USERNAME/GitHub-Blog/issues/1 -> 404`, indicando env var `VITE_GITHUB_USERNAME` configurada com valor literal/incorreto. Usuário deve confirmar envs (`VITE_GITHUB_USERNAME=IsaqueCarlos28`, `VITE_GITHUB_REPO=GitHub-Blog`, `VITE_POSTS_PER_PAGE=6`) e fazer redeploy.
+- **Observação importante:** no Vercel publicado foi observado `GET https://api.github.com/repos/VITE_GITHUB_USERNAME/GitHub-Blog/issues/1 -> 404`, indicando env var `VITE_GITHUB_USERNAME` configurada com valor literal/incorreto. Usuário confirmou correção no Vercel depois.
+
+## Evidência 21 — Recaptura de screenshots após correção
+
+- **Data / tarefa:** 2026-11-25 · T-17 (capturas finais)
+- **Prompt usado:**
+  > "1 - Ja concertei no vercel 2 - Pode refazer os screenshots necessarios 3 - A revisão visual manual ja passou, falta só as outras etapas, vamos fazer elas"
+- **Resultado da IA:** recapturou `docs/screenshots/home.png`, `search.png`, `post.png`, `mobile.png` a partir do ambiente publicado `https://github-blog-one-flax.vercel.app/` após o redeploy/correção.
+- **Ajustes que fiz:** nenhum ajuste manual adicional.
+- **Como verifiquei:** arquivos atualizados em `docs/screenshots/`; captura feita pelo browser tool contra a URL pública. `mobile.png` segue como captura full-page (limitação do tool sem emulação de viewport dedicada).
 
 ## Reflexão final
 
