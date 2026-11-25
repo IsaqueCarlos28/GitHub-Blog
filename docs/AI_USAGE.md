@@ -44,6 +44,16 @@
 - **Como verifiquei:** `npm run build` passou após configuração e após limpeza da prova; warning de ordem de `@import` no CSS foi corrigido.
 - **O que consigo explicar:** Tailwind v4 usa `@theme` para expor tokens como classes utilitárias; o plugin typography fornece a classe `prose` para estilizar Markdown/conteúdo rico.
 
+## Evidência 5 — T-03: dependências, estrutura, config e Vitest
+
+- **Data / tarefa:** 2026-11-24 · T-03 (RN-09, RN-10, RNF-05)
+- **Prompt usado:**
+  > Continuação autorizada do plano de desenvolvimento (commits semânticos por tarefa).
+- **Resultado da IA:** instalou axios, react-router-dom, react-markdown, remark-gfm, date-fns e deps de teste (vitest, RTL, jest-dom, user-event, jsdom); configurou Vitest em `vite.config.ts` com `jsdom` e setup `src/test/setup.ts`; adicionou script `test`; criou `src/config/env.ts` com defaults públicos e tipagem em `src/vite-env.d.ts`; adicionou smoke test de config.
+- **Ajustes que fiz:** nenhum ajuste manual adicional; mantido escopo sem criar pastas desnecessárias.
+- **Como verifiquei:** `npm run test` (1 teste passando) e `npm run build` passando.
+- **O que consigo explicar:** centralizar env em `config/env.ts` evita espalhar `import.meta.env` pelo app e garante que username/repo sejam configuráveis sem hardcode em componentes.
+
 ## Reflexão final
 
 - **Onde a IA mais ajudou:** acelerar análise de SPECs, preparar configuração de deploy e executar tarefas operacionais repetitivas (criação/validação de issues).
