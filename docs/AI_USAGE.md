@@ -144,6 +144,16 @@
 - **Como verifiquei:** `npm run test` e `npm run build` passando. Verificação manual esperada: abrir post por clique e por URL direta; Voltar preserva busca/página.
 - **O que consigo explicar:** o detalhe busca a issue individual por número, permitindo acesso direto por URL; o Markdown é renderizado sem HTML bruto para reduzir risco de XSS.
 
+## Evidência 15 — T-13: rotas finais e NotFoundPage
+
+- **Data / tarefa:** 2026-11-24 · T-13 (RF-09/16)
+- **Prompt usado:**
+  > Continuação autorizada do plano de desenvolvimento (commits semânticos por tarefa).
+- **Resultado da IA:** criou `NotFoundPage`, adicionou rota `*` no `App.tsx` e escreveu teste T-03 para `/post/3` validando título, parágrafo, lista, link seguro, bloco de código e body nulo.
+- **Ajustes que fiz:** nenhum ajuste manual adicional.
+- **Como verifiquei:** `npm run test` (18 testes passando) e `npm run build` passando.
+- **O que consigo explicar:** a rota `*` captura URLs desconhecidas no SPA e exibe uma 404 amigável com retorno à Home.
+
 ## Reflexão final
 
 - **Onde a IA mais ajudou:** acelerar análise de SPECs, preparar configuração de deploy e executar tarefas operacionais repetitivas (criação/validação de issues).

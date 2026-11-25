@@ -21,7 +21,7 @@
 | **T-10** | `useDebounce`, `SearchInput` e integração com `?q=` na URL; abort de requisição obsoleta | T-09 | RF-05/06/16, RNF-01 | Digitar rápido gera **1** chamada; busca antiga nunca sobrescreve a nova; vazio tratado | [x] |
 | **T-11** | `Pagination` (`?page=`, `per_page`=6) + testes T-01, T-02 e T-06 | T-10 | RF-07, RN-05 | 10 issues → 2 páginas; Anterior/Próxima desabilitados nos extremos; testes passam | [x] |
 | **T-12** | `useIssue`, `MarkdownContent` e `PostPage` (Voltar, Ver no GitHub, metadados) | T-05 | RF-09/10/11/12, RN-07 | Funciona por clique **e** URL direta; Markdown completo; Voltar preserva busca/página | [x] |
-| **T-13** | Rotas finais, `NotFoundPage` + teste T-03 (detalhe) | T-12 | RF-09/16 | URL desconhecida mostra 404 com link; teste passa | [ ] |
+| **T-13** | Rotas finais, `NotFoundPage` + teste T-03 (detalhe) | T-12 | RF-09/16 | URL desconhecida mostra 404 com link; teste passa | [x] |
 | **T-14** | Revisão de resiliência (404, rate limit com horário, rede, vazio, retry) + teste T-04 | T-13 | RF-13/14, RN-08 | Cenários simulados (offline, bloqueio, URL inexistente) corretos; teste passa | [ ] |
 | **T-15** | Fidelidade ao Figma, responsividade (375/768/1280) e acessibilidade (TECH_SPEC §12) | T-13 | RF-15/16, RNF-02/03 | Sem rolagem horizontal; foco visível; teclado completo; Lighthouse sem pendências graves | [ ] |
 | **T-16** | `npm run build` + `npm test`; checklist de aceite do PRD §9; atualizar SPECs se algo mudou | T-14, T-15 | todos | Sem erros nem `any`/`console.log`; checklist no README | [ ] |
