@@ -19,7 +19,22 @@ function parseResetAt(headers: unknown): Date | undefined {
   return new Date(seconds * 1000)
 }
 
+function isAppError(error: unknown): error is AppError {
+  if (!error || typeof error !== 'object') return false
+  const kind = (error as { kind?: unknown }).kind
+  return (
+    kind === 'not_found' ||
+    kind === 'rate_limit' ||
+    kind === 'network' ||
+    kind === 'unknown'
+  )
+}
+
 export function toAppError(error: unknown): AppError {
+  if (isAppError(error)) {
+    return error
+  }
+
   if (axios.isCancel(error)) {
     throw error
   }

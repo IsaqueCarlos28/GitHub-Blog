@@ -64,6 +64,16 @@
 - **Como verifiquei:** `npm run test` (5 testes passando) e `npm run build` passando.
 - **O que consigo explicar:** o rate limit é detectado quando status é 403/429 e o header `x-ratelimit-remaining` é `0` ou a mensagem indica rate limit; o `x-ratelimit-reset` (epoch em segundos) é convertido em `Date` para informar quando tentar novamente.
 
+## Evidência 7 — T-05: buildSearchQuery e githubApi
+
+- **Data / tarefa:** 2026-11-24 · T-05 (RF-01/04/05/07/10, RN-03/05/06)
+- **Prompt usado:**
+  > Continuação autorizada do plano de desenvolvimento (commits semânticos por tarefa).
+- **Resultado da IA:** criou `src/utils/buildSearchQuery.ts` (trim, colapso de espaços, `repo:{owner}/{repo} is:issue`) com testes; criou `src/services/githubApi.ts` com `getUser`, `searchIssues`, `getIssue`, todos aceitando `AbortSignal`, usando `httpClient` e `toAppError`; `searchIssues` usa params `q, sort, order, page, per_page` e retorna `PaginatedResult`; `getIssue` trata `pull_request` como `not_found`.
+- **Ajustes que fiz:** nenhum ajuste manual adicional.
+- **Como verifiquei:** `npm run test` (8 testes passando) e `npm run build` passando. Para confirmar na aba Rede: abrir DevTools > Network, disparar busca/listagem e verificar chamada para `api.github.com/search/issues` com `q` contendo `repo:IsaqueCarlos28/GitHub-Blog is:issue`.
+- **O que consigo explicar:** usar `params` do Axios garante encoding correto da query; `AbortSignal` permite cancelar requisições obsoletas e evitar race condition na UI.
+
 ## Reflexão final
 
 - **Onde a IA mais ajudou:** acelerar análise de SPECs, preparar configuração de deploy e executar tarefas operacionais repetitivas (criação/validação de issues).
