@@ -104,6 +104,16 @@
 - **Como verifiquei:** `npm run test` (12 testes passando) e `npm run build` passando.
 - **O que consigo explicar:** `stripMarkdown` remove marcações para gerar resumo limpo; `formatRelativeDate` usa `date-fns` com locale pt-BR para exibir tempo relativo.
 
+## Evidência 11 — T-09: listagem de issues na Home
+
+- **Data / tarefa:** 2026-11-24 · T-09 (RF-04, RN-04)
+- **Prompt usado:**
+  > Continuação autorizada do plano de desenvolvimento (commits semânticos por tarefa).
+- **Resultado da IA:** criou `useIssues` com AbortController/retry e integrou na `HomePage` a seção "Publicações" com contador por `total_count`, `IssueList`, loading, erro e vazio (term='' e page=1).
+- **Ajustes que fiz:** nenhum ajuste manual adicional.
+- **Como verifiquei:** `npm run test` e `npm run build` passando. Verificação manual esperada: Home lista issues reais; erro simulado exibe retry.
+- **O que consigo explicar:** `useIssues` reutiliza o mesmo padrão de estado do hook de perfil, mantendo consistência de loading/erro/cancelamento.
+
 ## Reflexão final
 
 - **Onde a IA mais ajudou:** acelerar análise de SPECs, preparar configuração de deploy e executar tarefas operacionais repetitivas (criação/validação de issues).
