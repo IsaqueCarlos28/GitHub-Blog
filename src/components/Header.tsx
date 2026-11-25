@@ -1,6 +1,14 @@
-export function Header() {
+interface HeaderProps {
+  compact?: boolean
+}
+
+export function Header({ compact = false }: HeaderProps) {
   return (
-    <header className="bg-profile relative flex h-[220px] items-center justify-center overflow-hidden md:h-[296px]">
+    <header
+      className={`bg-profile relative flex items-center justify-center overflow-hidden ${
+        compact ? 'h-[160px] md:h-[212px]' : 'h-[220px] md:h-[296px]'
+      }`}
+    >
       <div
         aria-hidden
         className="absolute -left-20 top-[-80px] h-[200px] w-[200px] rounded-full bg-[#14589C] blur-[106px]"

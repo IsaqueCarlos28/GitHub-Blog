@@ -55,7 +55,7 @@ export function PostPage() {
 
   return (
     <div>
-      <Header />
+      <Header compact />
       <main className="mx-auto w-full max-w-[864px] px-4 pb-8 md:px-6 xl:px-0">
         {status === 'loading' && (
           <>
