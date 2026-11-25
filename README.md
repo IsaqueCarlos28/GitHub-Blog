@@ -64,7 +64,7 @@ Manual (preencher ao final):
 - [x] `/post/:number` por clique e por URL direta
 - [x] Detalhe com Markdown, link externo e Voltar
 - [x] Loading, erro, 404, rate limit e retry
-- [ ] Fiel ao Figma; ok em celular e desktop (revisão visual/manual recomendada)
+- [x] Fiel ao Figma; ok em celular e desktop (revisão visual/manual realizada)
 - [x] Publicado e demonstrável
 
 ## Capturas de tela

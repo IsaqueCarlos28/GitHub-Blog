@@ -218,8 +218,18 @@
 - **Ajustes que fiz:** nenhum ajuste manual adicional.
 - **Como verifiquei:** arquivos atualizados em `docs/screenshots/`; captura feita pelo browser tool contra a URL pública. `mobile.png` segue como captura full-page (limitação do tool sem emulação de viewport dedicada).
 
+## Evidência 22 — Ensaio/validação da demo no Vercel
+
+- **Data / tarefa:** 2026-11-25 · T-18 (demo)
+- **Prompt usado:**
+  > "2. Pode resar e validar, retornando um relatorio..." (com pedido para atualizar reflexão e validar demo)
+- **Resultado da IA:** executou validação no ambiente publicado `https://github-blog-one-flax.vercel.app/` via browser tool.
+- **Fluxos validados no ar:** Home carregou perfil e 10 publicações com paginação (6+4); busca por `react` atualizou URL para `/?q=react&page=1`; paginação avançou para `/?page=2` e desabilitou “Próxima página”; clique em post abriu `/post/3` com título/conteúdo/links; “Voltar” retornou para `/?page=2`; rota inexistente exibiu 404 com link para Home; `/post/999999` exibiu “Post não encontrado”.
+- **Cenários de erro/rate limit/rede:** cobertos por testes automatizados T-04 (`src/pages/Resilience.test.tsx`) com mensagens e retry; rate limit real não foi forçado no ambiente publicado para evitar consumo desnecessário de quota.
+- **Como verifiquei:** navegação real no browser tool + asserts por snapshot/URL/texto; suíte automatizada previamente verde (`npm run test`, 23 testes).
+
 ## Reflexão final
 
-- **Onde a IA mais ajudou:** acelerar análise de SPECs, preparar configuração de deploy e executar tarefas operacionais repetitivas (criação/validação de issues).
-- **Onde precisei revisar:** conferir se as mudanças respeitavam as regras inegociáveis (sem token em `VITE_*`, rewrite SPA, escopo mínimo) e se as evidências descrevem apenas o que aconteceu.
-- **O que faria diferente:** registrar evidências imediatamente após cada tarefa de código, com capturas/saídas de teste anexadas ao fluxo de validação.
+- **Onde a IA mais ajudou:** Ajudou bastante no planejamento e implementação do projeto.
+- **Onde precisei revisar:** Se o estado da implementação está coerente com o planejado e bem implementado, além de problemáticas no layout.
+- **O que faria diferente:** Teria implementado o CI e CD nesse projeto já que decidi fazer o deploy logo no começo.
