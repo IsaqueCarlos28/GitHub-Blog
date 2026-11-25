@@ -154,6 +154,16 @@
 - **Como verifiquei:** `npm run test` (18 testes passando) e `npm run build` passando.
 - **O que consigo explicar:** a rota `*` captura URLs desconhecidas no SPA e exibe uma 404 amigável com retorno à Home.
 
+## Evidência 16 — T-14: resiliência e teste T-04
+
+- **Data / tarefa:** 2026-11-24 · T-14 (RF-13/14, RN-08)
+- **Prompt usado:**
+  > Continuação autorizada do plano de desenvolvimento (commits semânticos por tarefa).
+- **Resultado da IA:** revisou Home e PostPage para 404, rate limit com horário, rede, vazio e retry; criou `Resilience.test.tsx` (T-04) cobrindo mensagens corretas e retry refazendo chamada.
+- **Ajustes que fiz:** nenhum ajuste manual adicional; tornei asserções de texto/heading robustas em jsdom.
+- **Como verifiquei:** `npm run test` (23 testes passando) e `npm run build` passando. Simulação manual: DevTools Offline/rede para erro de rede; bloquear request ou mockar 403 com `x-ratelimit-remaining: 0` para rate limit; acessar `/post/999` para 404.
+- **O que consigo explicar:** todos os erros passam por `toAppError`, a UI mostra estado claro com retry, e AbortController evita loading infinito por resposta obsoleta.
+
 ## Reflexão final
 
 - **Onde a IA mais ajudou:** acelerar análise de SPECs, preparar configuração de deploy e executar tarefas operacionais repetitivas (criação/validação de issues).
