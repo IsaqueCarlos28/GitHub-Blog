@@ -189,6 +189,16 @@
   - Aviso de chunk >500kB no build — **opcional** otimizar em T-17/T-16.x (não é erro).
   - Validação visual Figma/Lighthouse completa — **pendente validação manual** pelo aluno.
 
+## Evidência 19 — Correção de layout e T-17 (deploy/capturas)
+
+- **Data / tarefa:** 2026-11-24 · Correção de layout + T-17 (RF-09/10)
+- **Prompt usado:**
+  > "Aqui esta as respostas: 1 - Sim, aqui o Link: https://github-blog-one-flax.vercel.app/ 2 - Configurei já 3-  Pode capturar por conta propria. Eu tambem encontrei um problema no layout... nas paginas das postagens a seção com logo e nome da aplicação ocupa muito espaço, revise o layout das paginas..." (imagem anexada; modelo sem suporte a imagem)
+- **Resultado da IA:** adicionou variante `compact` no `Header` e aplicou na `PostPage` para reduzir o espaço do cover; executou build; capturou screenshots com browser local (`home.png`, `search.png`, `post.png`, `mobile.png`) e atualizou README com URL do Vercel e checklist.
+- **Ajustes que fiz:** usuário reportou o problema de layout e forneceu URL do Vercel; revisão visual final no Figma/Lighthouse permanece recomendada.
+- **Como verifiquei:** `npm run build` passando; screenshots geradas em `docs/screenshots/`; verificação local via navegador em `127.0.0.1:4173`. Observação: `mobile.png` foi capturado como screenshot full-page pelo browser tool disponível (sem emulação de viewport dedicada).
+- **O que consigo explicar:** pequenos ajustes de layout devem preservar tokens e hierarquia visual; em páginas de detalhe, reduzir o cover melhora foco no conteúdo.
+
 ## Reflexão final
 
 - **Onde a IA mais ajudou:** acelerar análise de SPECs, preparar configuração de deploy e executar tarefas operacionais repetitivas (criação/validação de issues).

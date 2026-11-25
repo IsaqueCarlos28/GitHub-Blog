@@ -25,7 +25,7 @@
 | **T-14** | Revisão de resiliência (404, rate limit com horário, rede, vazio, retry) + teste T-04 | T-13 | RF-13/14, RN-08 | Cenários simulados (offline, bloqueio, URL inexistente) corretos; teste passa | [x] |
 | **T-15** | Fidelidade ao Figma, responsividade (375/768/1280) e acessibilidade (TECH_SPEC §12) | T-13 | RF-15/16, RNF-02/03 | Sem rolagem horizontal; foco visível; teclado completo; Lighthouse sem pendências graves | [x] |
 | **T-16** | `npm run build` + `npm test`; checklist de aceite do PRD §9; atualizar SPECs se algo mudou | T-14, T-15 | todos | Sem erros nem `any`/`console.log`; checklist no README | [x] |
-| **T-17** | Rewrite SPA, deploy (Vercel/Netlify), README final, capturas de tela (Home, busca, detalhe, mobile) | T-16 | RF-09/10 | URL pública funciona **inclusive `/post/N` direto**; ≥ 4 imagens em `docs/screenshots/` | [ ] |
+| **T-17** | Rewrite SPA, deploy (Vercel/Netlify), README final, capturas de tela (Home, busca, detalhe, mobile) | T-16 | RF-09/10 | URL pública funciona **inclusive `/post/N` direto**; ≥ 4 imagens em `docs/screenshots/` | [x] |
 | **T-18** | `AI_USAGE.md` com **≥ 3 evidências reais**; conferir repo (sem segredos/`node_modules`, commits semânticos); ensaiar a demonstração | durante todo o projeto | RN-09 | Evidências preenchidas; repositório público e limpo; demo ensaiada; links entregues no Blackboard | [ ] |
 
 **Extras (somente após T-18):** filtro por labels · skeleton refinado · cache em memória · modo claro/escuro · E2E com Playwright.

@@ -2,7 +2,7 @@
 
 Blog pessoal sobre a API pública do GitHub: perfil do desenvolvedor no topo, **issues** de um repositório como **posts**, busca com debounce, paginação real e leitura em Markdown. Projeto 06 (Recuperação) — disciplina SPA.
 
-- 🔗 Aplicação: `{URL_DA_APLICACAO}`
+- 🔗 Aplicação: https://github-blog-one-flax.vercel.app/
 - 🔗 Repositório de conteúdo (issues): https://github.com/IsaqueCarlos28/GitHub-Blog/issues
 - 🎨 Figma: https://www.figma.com/design/UwueQLrlNptAEGtSh2ruHm/GitHub-Blog--Community---Copy---Copy-?node-id=0-1&t=w6hJkpqs6AfNQI1W-1
 
@@ -54,18 +54,18 @@ Scripts: `npm run dev` · `npm run build` · `npm run preview` · `npm test`.
 Automatizados: busca com debounce, paginação, detalhe com Markdown, falhas (404 / rate limit / rede / retry), lista vazia e utilitários.
 
 Manual (preencher ao final):
-- [ ] Compila e navega sem erros
-- [ ] Perfil real com todos os campos
-- [ ] Últimos posts sem busca
-- [ ] Busca pela Search API; vazio tratado
-- [ ] Debounce evita chamadas excessivas
-- [ ] Paginação real
-- [ ] Cards com título, data, resumo e comentários
-- [ ] `/post/:number` por clique e por URL direta
-- [ ] Detalhe com Markdown, link externo e Voltar
-- [ ] Loading, erro, 404, rate limit e retry
-- [ ] Fiel ao Figma; ok em celular e desktop
-- [ ] Publicado e demonstrável
+- [x] Compila e navega sem erros
+- [x] Perfil real com todos os campos
+- [x] Últimos posts sem busca
+- [x] Busca pela Search API; vazio tratado
+- [x] Debounce evita chamadas excessivas
+- [x] Paginação real
+- [x] Cards com título, data, resumo e comentários
+- [x] `/post/:number` por clique e por URL direta
+- [x] Detalhe com Markdown, link externo e Voltar
+- [x] Loading, erro, 404, rate limit e retry
+- [ ] Fiel ao Figma; ok em celular e desktop (revisão visual/manual recomendada)
+- [x] Publicado e demonstrável
 
 ## Capturas de tela
 
