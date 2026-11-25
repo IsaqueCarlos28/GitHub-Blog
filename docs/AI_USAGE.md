@@ -199,6 +199,16 @@
 - **Como verifiquei:** `npm run build` passando; screenshots geradas em `docs/screenshots/`; verificação local via navegador em `127.0.0.1:4173`. Observação: `mobile.png` foi capturado como screenshot full-page pelo browser tool disponível (sem emulação de viewport dedicada).
 - **O que consigo explicar:** pequenos ajustes de layout devem preservar tokens e hierarquia visual; em páginas de detalhe, reduzir o cover melhora foco no conteúdo.
 
+## Evidência 20 — Correção de sobreposição header/card
+
+- **Data / tarefa:** 2026-11-25 · Correção de layout pós-T-17
+- **Prompt usado:**
+  > "Ainda esta errado, de uma olhada, a seçao que dis GitHub blog esta sobresaindo por cima das outras seções" (imagem anexada; modelo sem suporte a leitura da imagem)
+- **Resultado da IA:** diagnosticou com `browser.evaluate` no ambiente publicado/local: `header` com `position: relative; z-index:auto; height:212` e card sobreposto com `position: static; z-index:auto; top:124` (sobreposição geométrica de 88px). Como o header é posicionado e vem antes no DOM, ele pintava por cima do card estático. Corrigiu adicionando `relative` aos wrappers/cards com margem negativa em `PostPage.tsx` e `HomePage.tsx` (LoadingState/ErrorState já tinham `relative` parcial no working tree).
+- **Ajustes que fiz:** nenhum ajuste manual adicional no código; validação visual final no Vercel após redeploy fica com o usuário.
+- **Como verifiquei:** `browser.evaluate` após HMR confirmou `card.pos === 'relative'`; `npm run build` e `npm run test` passaram (9 arquivos, 23 testes). Screenshot automatizado do post não pôde ser recapturado neste ambiente (browser screenshot exigiu janela visível).
+- **Observação importante:** no Vercel publicado foi observado `GET https://api.github.com/repos/VITE_GITHUB_USERNAME/GitHub-Blog/issues/1 -> 404`, indicando env var `VITE_GITHUB_USERNAME` configurada com valor literal/incorreto. Usuário deve confirmar envs (`VITE_GITHUB_USERNAME=IsaqueCarlos28`, `VITE_GITHUB_REPO=GitHub-Blog`, `VITE_POSTS_PER_PAGE=6`) e fazer redeploy.
+
 ## Reflexão final
 
 - **Onde a IA mais ajudou:** acelerar análise de SPECs, preparar configuração de deploy e executar tarefas operacionais repetitivas (criação/validação de issues).

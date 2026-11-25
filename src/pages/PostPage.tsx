@@ -60,14 +60,14 @@ export function PostPage() {
         {status === 'loading' && (
           <>
             <h1 className="sr-only">Carregando post</h1>
-            <div className="mx-auto -mt-[72px] w-full max-w-[864px] md:-mt-[88px]">
+            <div className="relative mx-auto -mt-[72px] w-full max-w-[864px] md:-mt-[88px]">
               <LoadingState variant="profile" />
             </div>
           </>
         )}
 
         {status === 'error' && error && error.kind === 'not_found' && (
-          <section className="bg-profile rounded-card shadow-card mx-auto -mt-[72px] w-full max-w-[864px] p-8 text-center md:-mt-[88px]">
+          <section className="bg-profile rounded-card shadow-card relative mx-auto -mt-[72px] w-full max-w-[864px] p-8 text-center md:-mt-[88px]">
             <h1 className="text-title text-[24px] font-bold leading-[1.3]">Post não encontrado</h1>
             <p className="text-text mt-2 text-[16px] leading-[1.6]">
               O post que você tentou acessar não existe ou foi removido.
@@ -81,7 +81,7 @@ export function PostPage() {
         {status === 'error' && error && error.kind !== 'not_found' && (
           <>
             <h1 className="sr-only">Erro ao carregar post</h1>
-            <div className="mx-auto -mt-[72px] w-full max-w-[864px] md:-mt-[88px]">
+            <div className="relative mx-auto -mt-[72px] w-full max-w-[864px] md:-mt-[88px]">
               <ErrorState error={error} onRetry={retry} />
             </div>
           </>
@@ -89,7 +89,7 @@ export function PostPage() {
 
         {status === 'success' && data && (
           <>
-            <section className="bg-profile rounded-card shadow-card mx-auto -mt-[72px] w-full max-w-[864px] p-6 md:-mt-[88px] md:p-8">
+            <section className="bg-profile rounded-card shadow-card relative mx-auto -mt-[72px] w-full max-w-[864px] p-6 md:-mt-[88px] md:p-8">
               <div className="flex items-center justify-between gap-4">
                 <button
                   type="button"

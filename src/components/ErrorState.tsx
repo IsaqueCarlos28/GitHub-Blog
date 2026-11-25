@@ -16,7 +16,7 @@ export function ErrorState({ error, onRetry }: ErrorStateProps) {
   return (
     <div
       role="alert"
-      className="bg-post border-border rounded-card border p-8 text-center"
+      className="bg-post border-border rounded-card relative border p-8 text-center"
     >
       <h2 className="text-title text-[20px] font-bold leading-[1.6]">
         {titles[error.kind]}

@@ -64,7 +64,7 @@ export function HomePage() {
         {profile.status === 'loading' && (
           <>
             <h1 className="sr-only">GitHub Blog</h1>
-            <div className="mx-auto -mt-[72px] w-full max-w-[864px] md:-mt-[88px]">
+            <div className="relative mx-auto -mt-[72px] w-full max-w-[864px] md:-mt-[88px]">
               <LoadingState variant="profile" />
             </div>
           </>
@@ -73,7 +73,7 @@ export function HomePage() {
         {profile.status === 'error' && profile.error && (
           <>
             <h1 className="sr-only">GitHub Blog</h1>
-            <div className="mx-auto -mt-[72px] w-full max-w-[864px] md:-mt-[88px]">
+            <div className="relative mx-auto -mt-[72px] w-full max-w-[864px] md:-mt-[88px]">
               <ErrorState error={profile.error} onRetry={profile.retry} />
             </div>
           </>

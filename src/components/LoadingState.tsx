@@ -7,7 +7,7 @@ export function LoadingState({ variant = 'list' }: LoadingStateProps) {
     return (
       <div
         role="status"
-        className="bg-profile rounded-card shadow-card h-[212px] animate-pulse"
+        className="bg-profile rounded-card shadow-card relative h-[212px] animate-pulse"
       >
         <span className="sr-only">Carregando perfil...</span>
       </div>
