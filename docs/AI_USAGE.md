@@ -134,6 +134,16 @@
 - **Como verifiquei:** `npm run test` (16 testes passando) e `npm run build` passando.
 - **O que consigo explicar:** a paginação é server-side porque `page/per_page` vão na Search API e `totalPages` vem de `total_count`; a URL guarda `q` e `page`, permitindo compartilhar/restaurar estado.
 
+## Evidência 14 — T-12: detalhe do post com Markdown
+
+- **Data / tarefa:** 2026-11-24 · T-12 (RF-09/10/11/12, RN-07)
+- **Prompt usado:**
+  > Continuação autorizada do plano de desenvolvimento (commits semânticos por tarefa).
+- **Resultado da IA:** criou `useIssue` (valida número positivo, trata pull_request/not_found), `MarkdownContent` com `react-markdown` + `remark-gfm` sem `rehype-raw` e links seguros, `PostPage` com cabeçalho, metadados, Voltar/Ver no GitHub e conteúdo; adicionou rota `/post/:number`.
+- **Ajustes que fiz:** nenhum ajuste manual adicional.
+- **Como verifiquei:** `npm run test` e `npm run build` passando. Verificação manual esperada: abrir post por clique e por URL direta; Voltar preserva busca/página.
+- **O que consigo explicar:** o detalhe busca a issue individual por número, permitindo acesso direto por URL; o Markdown é renderizado sem HTML bruto para reduzir risco de XSS.
+
 ## Reflexão final
 
 - **Onde a IA mais ajudou:** acelerar análise de SPECs, preparar configuração de deploy e executar tarefas operacionais repetitivas (criação/validação de issues).
