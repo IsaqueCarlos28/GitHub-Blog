@@ -174,6 +174,21 @@
 - **Como verifiquei:** `npm run test` e `npm run build` passando; auditoria de código contra TECH_SPEC §12.4/12.5.
 - **O que consigo explicar:** acessibilidade não é só visual; labels, roles, foco e semântica permitem navegação por teclado e leitores de tela.
 
+## Evidência 18 — T-16: validação final e divergências
+
+- **Data / tarefa:** 2026-11-24 · T-16 (todos RF/RN/RNF)
+- **Prompt usado:**
+  > Continuação autorizada do plano de desenvolvimento (commits semânticos por tarefa).
+- **Resultado da IA:** executou `npm run build` e `npm run test`; verificou ausência de `console.log`/`any`/`dangerouslySetInnerHTML`/`rehype-raw`; revisou divergências entre código e SPECs.
+- **Ajustes que fiz:** nenhum ajuste de código adicional nesta etapa.
+- **Como verifiquei:** build passou (Vite warning de chunk >500kB, sem erro); testes passaram (9 arquivos, 23 testes). `git grep` sem ocorrências de `console.log`, `any`, `dangerouslySetInnerHTML`, `rehype-raw`.
+- **Divergências encontradas (propostas mínimas):**
+  - `config/env.ts` usa defaults reais (`IsaqueCarlos28`/`GitHub-Blog`) em vez de placeholders `{username}/{repo}` do exemplo da TECH_SPEC §5 — **manter** (mais útil para o projeto; spec pode registrar como implementação concreta).
+  - `toAppError` aceita passthrough de `AppError` — **manter** (compatível, simplifica `getIssue` pull_request).
+  - `vercel.json` criado antes de T-17 — **manter** (já atende requisito de rewrite SPA).
+  - Aviso de chunk >500kB no build — **opcional** otimizar em T-17/T-16.x (não é erro).
+  - Validação visual Figma/Lighthouse completa — **pendente validação manual** pelo aluno.
+
 ## Reflexão final
 
 - **Onde a IA mais ajudou:** acelerar análise de SPECs, preparar configuração de deploy e executar tarefas operacionais repetitivas (criação/validação de issues).
