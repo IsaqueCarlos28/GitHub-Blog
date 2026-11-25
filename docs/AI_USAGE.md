@@ -74,6 +74,16 @@
 - **Como verifiquei:** `npm run test` (8 testes passando) e `npm run build` passando. Para confirmar na aba Rede: abrir DevTools > Network, disparar busca/listagem e verificar chamada para `api.github.com/search/issues` com `q` contendo `repo:IsaqueCarlos28/GitHub-Blog is:issue`.
 - **O que consigo explicar:** usar `params` do Axios garante encoding correto da query; `AbortSignal` permite cancelar requisições obsoletas e evitar race condition na UI.
 
+## Evidência 8 — T-06: estados de UI e hook useGitHubUser
+
+- **Data / tarefa:** 2026-11-24 · T-06 (RF-13/14, RN-08)
+- **Prompt usado:**
+  > Continuação autorizada do plano de desenvolvimento (commits semânticos por tarefa).
+- **Resultado da IA:** criou `LoadingState`, `ErrorState` e `EmptyState` com roles/acessibilidade e estilos do TECH_SPEC; criou `useGitHubUser` com `AbortController`, cleanup, `retry` por `reloadKey`, ignorando cancelamento e terminando em `success` ou `error`.
+- **Ajustes que fiz:** nenhum ajuste manual adicional.
+- **Como verifiquei:** `npm run test` e `npm run build` passando; revisão do fluxo de estados do hook.
+- **O que consigo explicar:** o `AbortController` cancela a request anterior no cleanup; o hook ignora cancelamento para não tratar aborto como erro de usuário.
+
 ## Reflexão final
 
 - **Onde a IA mais ajudou:** acelerar análise de SPECs, preparar configuração de deploy e executar tarefas operacionais repetitivas (criação/validação de issues).
