@@ -34,6 +34,16 @@
 - **Como verifiquei:** `gh issue create` retornou URLs das issues #1-#10; `gh issue comment` adicionou 3 comentários; consulta `curl.exe` à `https://api.github.com/search/issues?q=repo:IsaqueCarlos28/GitHub-Blog+is:issue&per_page=1` retornou `total_count: 10`, `incomplete_results: false`.
 - **O que consigo explicar:** usar issues como posts permite consumir conteúdo real pela API pública do GitHub, com título, corpo Markdown, data, autor e contagem de comentários; a Search API com `is:issue` evita pull requests e fornece `total_count` para paginação no servidor.
 
+## Evidência 4 — T-02: tema Tailwind v4 e limpeza do template
+
+- **Data / tarefa:** 2026-11-24 · T-02 (RF-15, RNF-05)
+- **Prompt usado:**
+  > "Documente esse plano no repositorio, não precisa restrear pelo git, pode deixar como untracked..." (autorização para implementar o plano com commits semânticos por tarefa)
+- **Resultado da IA:** instalou `tailwindcss`, `@tailwindcss/vite`, `@tailwindcss/typography`; configurou plugin Tailwind no `vite.config.ts`; aplicou tema TECH_SPEC §12.1 em `src/index.css` (tokens, fontes, body); removeu conteúdo demo de `App.tsx`/`App.css` e ajustou `index.html` para `pt-BR`; provou classes `bg-post`, `text-title`, `font-logo`, `prose` em build e removeu a prova.
+- **Ajustes que fiz:** nenhum ajuste manual adicional nesta etapa; revisão do escopo para não antecipar T-03.
+- **Como verifiquei:** `npm run build` passou após configuração e após limpeza da prova; warning de ordem de `@import` no CSS foi corrigido.
+- **O que consigo explicar:** Tailwind v4 usa `@theme` para expor tokens como classes utilitárias; o plugin typography fornece a classe `prose` para estilizar Markdown/conteúdo rico.
+
 ## Reflexão final
 
 - **Onde a IA mais ajudou:** acelerar análise de SPECs, preparar configuração de deploy e executar tarefas operacionais repetitivas (criação/validação de issues).
