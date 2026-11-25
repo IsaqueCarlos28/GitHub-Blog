@@ -9,7 +9,7 @@
 
 | ID | Tarefa | Pré-req. | RF/RN | Critério de pronto | Status |
 |---|---|---|---|---|---|
-| **T-01** | Criar repositório **público** de conteúdo e abrir **≥ 10 issues autorais** em Markdown (temas sugeridos abaixo) | — | RF-03, RN-02 | `search/issues?q=repo:{u}/{r}+is:issue` retorna `total_count ≥ 10`; sem PRs; 2–3 issues com comentário | [ ] |
+| **T-01** | Criar repositório **público** de conteúdo e abrir **≥ 10 issues autorais** em Markdown (temas sugeridos abaixo) | — | RF-03, RN-02 | `search/issues?q=repo:{u}/{r}+is:issue` retorna `total_count ≥ 10`; sem PRs; 2–3 issues com comentário | [x] |
 | **T-02** | Projeto Vite + React + TS (`strict`), Tailwind v4 + typography com tema do Figma (TECH_SPEC §12.1), Git inicial | T-01 | RF-15, RNF-05 | `npm run dev` abre; classes `bg-post`, `text-title`, `font-logo`, `prose` funcionam; build passa | [ ] |
 | **T-03** | Dependências (`axios`, `react-router-dom`, `react-markdown`, `remark-gfm`, `date-fns`, Vitest + RTL + jsdom), estrutura de pastas, `config/env.ts`, `.env.example` | T-02 | RN-09, RN-10, RNF-05 | `npm test` roda; `config` exporta 4 valores; `.env` no `.gitignore` | [ ] |
 | **T-04** | Tipos, `httpClient` (sem `Authorization`) e `toAppError` + testes unitários | T-03 | RN-08, RN-09, RF-14 | Tipos compilam; testes de 404, rate limit, rede e desconhecido passam | [ ] |

@@ -3,8 +3,8 @@
 Blog pessoal sobre a API pública do GitHub: perfil do desenvolvedor no topo, **issues** de um repositório como **posts**, busca com debounce, paginação real e leitura em Markdown. Projeto 06 (Recuperação) — disciplina SPA.
 
 - 🔗 Aplicação: `{URL_DA_APLICACAO}`
-- 🔗 Repositório de conteúdo (issues): `{URL_DO_REPO_DE_POSTS}`
-- 🎨 Figma: `{LINK_DO_FIGMA}`
+- 🔗 Repositório de conteúdo (issues): https://github.com/IsaqueCarlos28/GitHub-Blog/issues
+- 🎨 Figma: https://www.figma.com/design/UwueQLrlNptAEGtSh2ruHm/GitHub-Blog--Community---Copy---Copy-?node-id=0-1&t=w6hJkpqs6AfNQI1W-1
 
 ## Funcionalidades
 
@@ -17,7 +17,7 @@ React · Vite · TypeScript · Tailwind CSS · Axios · React Router · react-ma
 ## Como rodar
 
 ```bash
-git clone {URL_DO_REPOSITORIO} && cd github-blog
+git clone https://github.com/IsaqueCarlos28/GitHub-Blog.git && cd GitHub-Blog
 npm install
 cp .env.example .env     # ajuste username e repo
 npm run dev
@@ -77,4 +77,4 @@ Desenvolvido com **OpenCode**, guiado por `AGENTS.md` e pelos SPECs, em tarefas 
 
 ## Autor
 
-Isaque · `{LINK_DO_GITHUB}`
+Isaque · https://github.com/IsaqueCarlos28
