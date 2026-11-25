@@ -10,3 +10,8 @@
   --radius-card:10px; --radius-input:6px; --radius-code:2px; --shadow-card:0 2px 28px rgba(0,0,0,.2);
 }
 body { background-color: var(--color-bg); color: var(--color-text); font-family: var(--font-sans); }
+
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}

@@ -104,12 +104,12 @@ export function PostPage() {
                   rel="noopener noreferrer"
                   className="text-brand inline-flex items-center gap-2 text-[12px] font-bold uppercase hover:underline"
                 >
-                  Ver no GitHub
+                  VER NO GITHUB
                   <ExternalLinkIcon />
                 </a>
               </div>
 
-              <h1 className="text-title mt-5 text-[20px] font-bold leading-[1.3] md:text-[24px]">
+              <h1 className="text-title mt-5 break-words text-[20px] font-bold leading-[1.3] md:text-[24px]">
                 {data.title}
               </h1>
 

@@ -164,6 +164,16 @@
 - **Como verifiquei:** `npm run test` (23 testes passando) e `npm run build` passando. Simulação manual: DevTools Offline/rede para erro de rede; bloquear request ou mockar 403 com `x-ratelimit-remaining: 0` para rate limit; acessar `/post/999` para 404.
 - **O que consigo explicar:** todos os erros passam por `toAppError`, a UI mostra estado claro com retry, e AbortController evita loading infinito por resposta obsoleta.
 
+## Evidência 17 — T-15: responsividade e acessibilidade
+
+- **Data / tarefa:** 2026-11-24 · T-15 (RF-15/16, RNF-02/03)
+- **Prompt usado:**
+  > Continuação autorizada do plano de desenvolvimento (commits semânticos por tarefa).
+- **Resultado da IA:** aplicou foco visível global (`:focus-visible`), ajustou uppercase/links de ação, adicionou `break-words` em título do post e revisou padrões de a11y (sr-only label, alt, roles, aria-label, landmarks, h1 único, links seguros, placeholder com `text-span`).
+- **Ajustes que fiz:** nenhum ajuste manual adicional; comparação pixel-perfect com Figma e Lighthouse completo ficam como validação manual recomendada.
+- **Como verifiquei:** `npm run test` e `npm run build` passando; auditoria de código contra TECH_SPEC §12.4/12.5.
+- **O que consigo explicar:** acessibilidade não é só visual; labels, roles, foco e semântica permitem navegação por teclado e leitores de tela.
+
 ## Reflexão final
 
 - **Onde a IA mais ajudou:** acelerar análise de SPECs, preparar configuração de deploy e executar tarefas operacionais repetitivas (criação/validação de issues).
