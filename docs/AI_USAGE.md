@@ -94,6 +94,16 @@
 - **Como verifiquei:** `npm run test` e `npm run build` passando. Verificação manual esperada: Home exibe perfil real; offline no DevTools mostra `ErrorState` e "Tentar novamente" refaz a chamada.
 - **O que consigo explicar:** fluxo `page → hook → service → Axios`: `HomePage` chama `useGitHubUser`, o hook controla estado/abort/retry e chama `getUser`, o service usa `httpClient` (Axios) para acessar a API do GitHub e converte erros com `toAppError`.
 
+## Evidência 10 — T-08: utilitários e cards de issue
+
+- **Data / tarefa:** 2026-11-24 · T-08 (RF-08, RN-07)
+- **Prompt usado:**
+  > Continuação autorizada do plano de desenvolvimento (commits semânticos por tarefa).
+- **Resultado da IA:** criou `stripMarkdown` e `formatRelativeDate` com testes; criou `IssueCard` e `IssueList` com layout responsivo, resumo truncado, data relativa, comentários e link para `/post/:number`.
+- **Ajustes que fiz:** nenhum ajuste manual adicional.
+- **Como verifiquei:** `npm run test` (12 testes passando) e `npm run build` passando.
+- **O que consigo explicar:** `stripMarkdown` remove marcações para gerar resumo limpo; `formatRelativeDate` usa `date-fns` com locale pt-BR para exibir tempo relativo.
+
 ## Reflexão final
 
 - **Onde a IA mais ajudou:** acelerar análise de SPECs, preparar configuração de deploy e executar tarefas operacionais repetitivas (criação/validação de issues).
