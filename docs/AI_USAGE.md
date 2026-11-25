@@ -84,6 +84,16 @@
 - **Como verifiquei:** `npm run test` e `npm run build` passando; revisão do fluxo de estados do hook.
 - **O que consigo explicar:** o `AbortController` cancela a request anterior no cleanup; o hook ignora cancelamento para não tratar aborto como erro de usuário.
 
+## Evidência 9 — T-07: Header, ProfileCard e Home com rota /
+
+- **Data / tarefa:** 2026-11-24 · T-07 (RF-01/02/15/16)
+- **Prompt usado:**
+  > Continuação autorizada do plano de desenvolvimento (commits semânticos por tarefa).
+- **Resultado da IA:** criou `Header`, `ProfileCard`, `HomePage` e configurou React Router em `App.tsx` com rota `/`; integrou `useGitHubUser` com estados de loading/erro/sucesso; adicionou placeholders de ícones em `src/assets/icons`.
+- **Ajustes que fiz:** nenhum ajuste manual adicional; ícones SVG do Figma ainda podem ser substituídos depois.
+- **Como verifiquei:** `npm run test` e `npm run build` passando. Verificação manual esperada: Home exibe perfil real; offline no DevTools mostra `ErrorState` e "Tentar novamente" refaz a chamada.
+- **O que consigo explicar:** fluxo `page → hook → service → Axios`: `HomePage` chama `useGitHubUser`, o hook controla estado/abort/retry e chama `getUser`, o service usa `httpClient` (Axios) para acessar a API do GitHub e converte erros com `toAppError`.
+
 ## Reflexão final
 
 - **Onde a IA mais ajudou:** acelerar análise de SPECs, preparar configuração de deploy e executar tarefas operacionais repetitivas (criação/validação de issues).
