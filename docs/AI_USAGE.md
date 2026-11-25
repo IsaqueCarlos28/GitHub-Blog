@@ -54,6 +54,16 @@
 - **Como verifiquei:** `npm run test` (1 teste passando) e `npm run build` passando.
 - **O que consigo explicar:** centralizar env em `config/env.ts` evita espalhar `import.meta.env` pelo app e garante que username/repo sejam configuráveis sem hardcode em componentes.
 
+## Evidência 6 — T-04: tipos, httpClient e toAppError
+
+- **Data / tarefa:** 2026-11-24 · T-04 (RN-08, RN-09, RF-14)
+- **Prompt usado:**
+  > Continuação autorizada do plano de desenvolvimento (commits semânticos por tarefa).
+- **Resultado da IA:** criou `src/types/github.ts` e `src/types/errors.ts` conforme TECH_SPEC §6; `src/services/httpClient.ts` com baseURL, headers Accept/X-GitHub-Api-Version, timeout 10000 e sem Authorization; `src/utils/toAppError.ts` mapeando cancelamento, rede, 404, rate limit e desconhecido; adicionou testes unitários de `toAppError`.
+- **Ajustes que fiz:** nenhum ajuste manual adicional; verificação de que não há `any`.
+- **Como verifiquei:** `npm run test` (5 testes passando) e `npm run build` passando.
+- **O que consigo explicar:** o rate limit é detectado quando status é 403/429 e o header `x-ratelimit-remaining` é `0` ou a mensagem indica rate limit; o `x-ratelimit-reset` (epoch em segundos) é convertido em `Date` para informar quando tentar novamente.
+
 ## Reflexão final
 
 - **Onde a IA mais ajudou:** acelerar análise de SPECs, preparar configuração de deploy e executar tarefas operacionais repetitivas (criação/validação de issues).
