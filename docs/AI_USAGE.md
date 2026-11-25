@@ -114,6 +114,16 @@
 - **Como verifiquei:** `npm run test` e `npm run build` passando. Verificação manual esperada: Home lista issues reais; erro simulado exibe retry.
 - **O que consigo explicar:** `useIssues` reutiliza o mesmo padrão de estado do hook de perfil, mantendo consistência de loading/erro/cancelamento.
 
+## Evidência 12 — T-10: busca com debounce e URL
+
+- **Data / tarefa:** 2026-11-24 · T-10 (RF-05/06/16, RNF-01)
+- **Prompt usado:**
+  > Continuação autorizada do plano de desenvolvimento (commits semânticos por tarefa).
+- **Resultado da IA:** criou `useDebounce` com teste de fake timers; criou `SearchInput`; integrou busca na `HomePage` usando estado local -> `useDebounce` -> `q` na URL (`useSearchParams`) -> `useIssues`; reset de página ao mudar termo; limpar busca; `EmptyState` com "Limpar busca".
+- **Ajustes que fiz:** nenhum ajuste manual adicional.
+- **Como verifiquei:** `npm run test` e `npm run build` passando. Verificação manual esperada: digitar rápido gera 1 chamada na aba Rede.
+- **O que consigo explicar:** fluxo `texto -> debounce -> URL -> hook`: o input atualiza estado local, o debounce espera o usuário parar, o termo normalizado vai para `?q=`, e o `useIssues` reage à mudança de `q` fazendo nova busca; AbortController evita sobrescrever resultado antigo.
+
 ## Reflexão final
 
 - **Onde a IA mais ajudou:** acelerar análise de SPECs, preparar configuração de deploy e executar tarefas operacionais repetitivas (criação/validação de issues).
